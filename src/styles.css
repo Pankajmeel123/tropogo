@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+	background: #F5F6FA;
+}
+
+/*header start*/
+.header {
+  box-shadow: 0 2px 12px rgb(0,0,0,0.06);
+  padding: 30px 100px;
+  background: #fff;
+}
+.header img{
+	height: 32px;
+}
+/*header end*/
+
+/*add course start*/
+.imgdiv img{
+	float: right;
+}
+/*add course end*/
+
