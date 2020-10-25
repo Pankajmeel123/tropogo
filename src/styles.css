@@ -6,8 +6,11 @@ body{
 /*header start*/
 .header {
   box-shadow: 0 2px 12px rgb(0,0,0,0.06);
-  padding: 30px 100px;
+  padding: 30px 65px;
   background: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
 }
 .header img{
 	height: 32px;
@@ -15,8 +18,53 @@ body{
 /*header end*/
 
 /*add course start*/
+.detailsdiv{
+	background: #fff;
+	padding: 0;
+}
+.detailsdiv .innerdiv{
+	padding: 20px 80px;
+}
+.detailsdiv .innerdiv h1{
+	font-size: 36px;
+}
+.imgdiv{
+	padding: 0;
+}
 .imgdiv img{
-	float: right;
+  float: right; 
+  width: 70%;
+  margin-top: 10%;
+}
+.savediv{
+	position: absolute;
+  width: 100%;
+  background: #fff;
+  bottom: 0;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
+  padding: 20px;
+  text-align: right;
+}
+.demodiv{
+  background: #eee;
+  padding: 25px;
+  margin-right: 10px;
+  width: 25px;
+}
+.upload{
+	margin-left: auto;
+  color: #197df6;
+  font-size: 13px;
+}
+.batchdetails-head{
+	padding: 0px;
+}
+.dropdown-menu{
+	border: 0px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
+}
+label{
+	font-size: 15px;
 }
 /*add course end*/
 

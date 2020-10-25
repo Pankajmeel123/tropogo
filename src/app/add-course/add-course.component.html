@@ -1,5 +1,127 @@
-<div class="row">
-	<div class="col-md-6"></div>
+<div class="row" style="padding-top: 92px;margin: 0;min-height: 100vh;max-height: 100vh;">
+	<div class="col-md-6 detailsdiv">
+		<div class="innerdiv">
+			<h1>Add Course Details</h1>
+			<hr>
+			<form>
+				<div class="form-group">
+					<label><strong>Couse Name</strong></label>
+					<input class="form-control" type="text" name="cname" placeholder="Add course name">
+				</div>
+				<div class="form-group">
+					<label style="display: flex;"><strong>Previous Course Gallery</strong><span class="upload"><img src="/assets/img/ic_upload.png"><strong> UPLOAD</strong></span></label>
+					<div style="display: flex;">
+						<div *ngFor="let data of ' '.repeat(5).split('')" class="demodiv"></div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label><strong>Aircraft Type</strong></label><br>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+					  <label class="form-check-label" for="exampleRadios1">
+					    Multi Rotar
+					  </label>
+					</div>
+					<div class="form-check form-check-inline">
+					  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" >
+					  <label class="form-check-label" for="exampleRadios2">
+					    Fixed Wing
+					  </label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3"><strong>BATCH</strong></div>
+					<div class="col-md-3"><strong>START DATE</strong></div>
+					<div class="col-md-3"><strong>END DATE</strong></div>
+				</div>
+				<div style="margin-bottom: 1rem;">
+					<div *ngFor="let data of ' '.repeat(3).split('');let i = index;" id="accordionExample">
+						<div class="row" style="margin: 0;background: #00000008;padding: 15px 0;border-bottom: 1px solid #cacaca;">
+							<div class="col-md-3"><strong>Batch {{i+1}}</strong></div>
+							<div class="col-md-3" style="display: flex;"><img src="/assets/img/ic_selectdate.png" style="height: 20px;margin:auto 10px auto 0;"><input name="" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" style="background: transparent;padding: 0px;border: none;position: absolute;"><span (click)="d.toggle()">DD MMM</span></div>
+							<div class="col-md-3" style="display: flex;"><img src="/assets/img/ic_selectdate.png" style="height: 20px;margin:auto 10px auto 0;"><input name="" ngbDatepicker #e="ngbDatepicker" (click)="e.toggle()" style="background: transparent;padding: 0px;border: none;position: absolute;"><span (click)="e.toggle()">DD MMM</span></div>
+							<div class="col-md-3" style="display: flex;">
+								<div class="dropdown" style="margin-left: auto;">
+								  <a href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								    <img src="/assets/img/ic_options.png" style="height: 20px;margin: auto 0 auto auto;">
+								  </a>
+
+								  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+								    <a class="dropdown-item" href="#">Action</a>
+								    <a class="dropdown-item" href="#">Another action</a>
+								    <a class="dropdown-item" href="#">Something else here</a>
+								  </div>
+								</div>
+								<button style="padding: 0;width: auto;" class="btn btn-block text-left" type="button" data-toggle="collapse" [attr.data-target]="'#collapse'+i" aria-expanded="true" [attr.aria-controls]="'collapse'+i"><img src="/assets/img/ic_dropdown.png"></button>
+							</div>
+						</div>
+						<div id="{{'collapse'+i}}" class="collapse" [ngClass]="i==0?'show':''" [attr.aria-labelledby]="'heading'+i" data-parent="#accordionExample" style="background: #f7f7f7;border-bottom: 1px solid #cacaca;">
+				      <div class="row" style="padding: 10px 0px 10px 0;">
+				      	<div class="col-md-3"></div>
+				      	<div class="col-md-9 row">
+				      		<div class="col-md-6">
+				      			<div class="form-group">
+											<label><strong>Course Location</strong></label>
+											<angular2-multiselect [data]="dropdownList" [(ngModel)]="selectedItems" class="form-control" style='padding: 0px;'
+									    [settings]="locationdrop" 
+									    (onSelect)="onItemSelect($event)" 
+									    (onDeSelect)="OnItemDeSelect($event)"
+									    (onSelectAll)="onSelectAll($event)"
+									    (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+										</div>
+				      		</div>
+				      		<div class="col-md-6">
+				      		</div>
+				      		<div class="col-md-6">
+				      			<div class="form-group">
+											<label><strong>Couse Language</strong></label>
+											<angular2-multiselect [data]="dropdownList" [(ngModel)]="selectedItems" class="form-control" style='padding: 0px;'
+									    [settings]="languagedrop" 
+									    (onSelect)="onItemSelect($event)" 
+									    (onDeSelect)="OnItemDeSelect($event)"
+									    (onSelectAll)="onSelectAll($event)"
+									    (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+										</div>
+				      		</div>
+				      		<div class="col-md-6">
+				      			<div class="form-group">
+											<label><strong>Course Cost (Ex  GST)</strong></label>
+											<input class="form-control" type="text" name="cname" placeholder="Add course name">
+										</div>
+				      		</div>
+				      		<div style="padding: 0 15px;color: #868686;">
+				      			<span style="margin-right: 10px;">Is this a weekend course?</span>
+				      			<div class="form-check form-check-inline">
+										  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option1" checked>
+										  <label class="form-check-label" for="exampleRadios3">
+										    Yes
+										  </label>
+										</div>
+										<div class="form-check form-check-inline">
+										  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option2" >
+										  <label class="form-check-label" for="exampleRadios4">
+										    No
+										  </label>
+										</div>
+				      		</div>
+				      	</div>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				<div style="margin-bottom: 1rem;">
+					<img src="/assets/img/ic_addcourse.png"><strong style="color: #5bc873;margin-left: 10px;">ADD ANOTHER COURSE DATE</strong>
+				</div>
+				<div class="form-group">
+					<label><strong>COURSE DETAILS</strong></label>
+					<textarea class="form-control" type="text" name="cname" placeholder="Add details" rows="4"></textarea>
+				</div>
+			</form>
+		</div>
+		<div class="savediv">
+			<button class="btn btn-success"><strong>SAVE & PUBLISH</strong></button>
+		</div>
+	</div>
 	<div class="col-md-6 imgdiv">
 		<img src="/assets/img/ic_bg.png">
 	</div>
